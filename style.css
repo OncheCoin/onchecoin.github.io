@@ -1,0 +1,145 @@
+@font-face {
+  font-family: "ComicSansMS";
+  src: url("font/ComicSansMS.eot");
+  src:
+    url("font/ComicSansMS.eot?#iefix") format("embedded-opentype"),
+    url("font/ComicSansMS.woff") format("woff"),
+    url("font/ComicSansMS.woff2") format("woff2"),
+    url("font/ComicSansMS.ttf") format("truetype"),
+    url("font/ComicSansMS.svg#ComicSansMS") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "ComicSansMS", "Comic Sans MS";
+}
+
+.rainbow {
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 3px 3px 0 #111827;
+  background: linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1) 0%,
+      rgba(255, 154, 0, 1) 10%,
+      rgba(208, 222, 33, 1) 20%,
+      rgba(79, 220, 74, 1) 30%,
+      rgba(63, 218, 216, 1) 40%,
+      rgba(47, 201, 226, 1) 50%,
+      rgba(28, 127, 238, 1) 60%,
+      rgba(95, 21, 242, 1) 70%,
+      rgba(186, 12, 248, 1) 80%,
+      rgba(251, 7, 217, 1) 90%,
+      rgba(255, 0, 0, 1) 100%
+    )
+    0 0/200% 100%;
+  animation: rainbow 2s linear infinite;
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 0 30px 0;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: end;
+  animation: scroll 10s linear infinite;
+  width: max-content;
+}
+.carousel::before {
+  z-index: 2;
+  content: "";
+  height: 100%;
+  width: 50px;
+  background-image: linear-gradient(
+    to right,
+    rgba(252, 211, 77, 1),
+    rgba(252, 211, 77, 0)
+  );
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.carousel::after {
+  z-index: 2;
+  content: "";
+  height: 100%;
+  width: 50px;
+  background-image: linear-gradient(
+    to left,
+    rgba(252, 211, 77, 1),
+    rgba(252, 211, 77, 0)
+  );
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.carousel-image {
+  width: 50px;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.news-ticker {
+  display: flex;
+  align-items: center;
+  background-color: #ff4500;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 30px;
+}
+
+.news-title {
+  background-color: #ff4500;
+  color: #fff;
+  padding: 0 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 50px;
+}
+
+.news-marquee {
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.news-items {
+  display: inline-block;
+  padding-left: 100%;
+  animation: newsscroll 25s linear infinite;
+}
+
+.news-items span {
+  display: inline-block;
+  padding: 0 50px;
+}
+
+@keyframes newsscroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes rainbow {
+  to {
+    background-position: -200% 0;
+  }
+}
